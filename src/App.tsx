@@ -1,10 +1,13 @@
-import { GlobalStyles } from './styles';
+import Header from './components/Header';
+import { GlobalStyles, Wrapper } from './styles';
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <h1>Testando as cores</h1>
+      <Wrapper>
+        <Header />
+      </Wrapper>
     </>
   );
 }
