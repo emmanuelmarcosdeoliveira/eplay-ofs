@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
   /* Branca */
@@ -24,12 +24,12 @@ export const GlobalStyles = createGlobalStyle`
   color: ${colors.color1};
   padding-top: 40px;
   padding-bottom: 80px;
-  
- }
-`
-
-export const Wrapper = styled.div`
+   }
+   .wrapper {
   max-width: 1024px;
   margin: 0 auto;
   width: 100%;
+   }
 `
+
+

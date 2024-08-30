@@ -1,13 +1,25 @@
+import {createBrowserRouter,  RouterProvider} from "react-router-dom"
+
+
+import Banner from './components/Banner';
 import Header from './components/Header';
-import { GlobalStyles, Wrapper } from './styles';
+import { GlobalStyles } from './styles';
 
 function App() {
+  const routers  = createBrowserRouter([
+    {
+      path: "/",
+      element: <Banner />
+    }, 
+    
+  ])
   return (
     <>
       <GlobalStyles />
-      <Wrapper>
+      <div className='wrapper'>
         <Header />
-      </Wrapper>
+      </div>
+      <RouterProvider router={routers} />
     </>
   );
 }

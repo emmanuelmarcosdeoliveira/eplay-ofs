@@ -2,7 +2,9 @@ import { HeaderBar, Links, LinkItem, LinkCart } from './styles';
 import logo from '../../assets/svg/logo.svg';
 import carrinho from "../../assets/svg/carrinho.svg"
 
+
 const Header = () => (
+  <>
   <HeaderBar>
       <div>
         <a href="#">
@@ -27,6 +29,7 @@ const Header = () => (
           <img src={carrinho} alt="Carrinho de compras" />
         </LinkCart>
       </HeaderBar>
+           </>
 );
 
 export default Header;
