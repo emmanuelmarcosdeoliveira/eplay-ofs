@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { colors } from '../../styles';
+import { colors } from '../../../styles/styles';
 
 export const HeaderBar = styled.header`
-  background-color: ${colors.color3};
+  background-color: ${colors.primary};
   padding: 24px;
-  color: ${colors.color1};
+  color: ${colors.white};
   border-radius: 16px;
   margin-bottom: 80px;
   display: flex;
@@ -18,7 +18,7 @@ export const HeaderBar = styled.header`
     }
   }
   a {
-    color: ${colors.color1}; 
+    color: ${colors.white}; 
     font-weight: 700;
     text-decoration: none;
    }

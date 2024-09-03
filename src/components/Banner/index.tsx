@@ -7,7 +7,7 @@ const Banner = () =>
       <Imagem style={{backgroundImage: `url(${bannerImg})`}}>
         <div className="wrapper">
           
-          <Tag size="big">Destaque do Dia</Tag>
+          <Tag size="big">Destaque do dia</Tag>
           <div>
        <Title>
         Marvel's Spider-Man: Miles Morales PS4 & PS5
