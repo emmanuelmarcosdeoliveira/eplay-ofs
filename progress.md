@@ -4,7 +4,8 @@
 
 ## Parte 1
 
-- [] **Aula 5**</br>
-Resumo: 
-- [] Falta fazer o Resumo da Aula 
-___
+- [x] **Aula 6**</br>
+      Resumo:
+- [] Falta fazer o Resumo da Aula
+
+---

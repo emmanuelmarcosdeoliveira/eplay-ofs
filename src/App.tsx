@@ -12,6 +12,7 @@ function App() {
         <>
           <Banner />
           <ProducstList title="Promoçoes" background="primary" />
+          <ProducstList title="Em Breve" background="black" />
         </>
       ),
     },
