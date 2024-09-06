@@ -1,50 +1,31 @@
-import Product from "../Product";
-import { Wrapper, List, Title } from "./styles";
+import Product from '../Product'
+import { Wrapper, List, Title } from './styles'
+import Game from '../../models/Game'
 export type Props = {
-  title: string;
-  background: "primary" | "black";
-};
+  title: string
+  background: 'primary' | 'black'
+  games: Game[]
+}
 
-const ProductsList = ({ title, background }: Props) => (
+const ProductsList = ({ title, background, games }: Props) => (
   <Wrapper background={background}>
     <div className="wrapper">
       <Title>{title}</Title>
       <List>
-        <Product
-          category="Ação"
-          description="teste"
-          image="//placehold.it/220x250"
-          infos={["-10%", "R$ 150"]}
-          system="windows"
-          title="Nome do Jogo"
-        />
-        <Product
-          category="Ação"
-          description="teste"
-          image="//placehold.it/220x250"
-          infos={["-10%", "R$ 150"]}
-          system="windows"
-          title="Nome do Jogo"
-        />
-        <Product
-          category="Ação"
-          description="teste"
-          image="//placehold.it/220x250"
-          infos={["-10%", "R$ 150"]}
-          system="windows"
-          title="Nome do Jogo"
-        />
-        <Product
-          category="Ação"
-          description="teste"
-          image="//placehold.it/220x250"
-          infos={["-10%", "R$ 150"]}
-          system="windows"
-          title="Nome do Jogo"
-        />
+        {games.map((game) => (
+          <Product
+            key={game.id}
+            category={game.category}
+            description={game.description}
+            image={game.image}
+            infos={game.infos}
+            system={game.system}
+            title={game.title}
+          />
+        ))}
       </List>
     </div>
   </Wrapper>
-);
+)
 
-export default ProductsList;
+export default ProductsList
