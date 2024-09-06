@@ -1,12 +1,21 @@
-import { GlobalStyles } from './styles';
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalStyles } from '../styles/styles'
+import Header from './components/Header'
+import MainRoutes from './routes'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <>
-      <GlobalStyles />
-      <h1>Testando as cores</h1>
+      <BrowserRouter>
+        <GlobalStyles />
+        <div className="wrapper">
+          <Header />
+        </div>
+        <MainRoutes />
+        <Footer />
+      </BrowserRouter>
     </>
-  );
+  )
 }
-
-export default App;
+export default App
