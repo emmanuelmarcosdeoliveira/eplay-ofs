@@ -15,14 +15,13 @@ class Game {
     system: string,
     title: string
   ) {
-      this.id = id,
-      this.category = category,
-      this.description = description,
-      this.image = image,
-      this.infos = infos,
-      this.system = system,
-      this.title = title,
- }
- 
+    this.id = id
+    this.category = category
+    this.description = description
+    this.image = image
+    this.infos = infos
+    this.system = system
+    this.title = title
+  }
 }
 export default Game

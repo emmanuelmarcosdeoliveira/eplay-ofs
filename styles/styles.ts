@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   /* Branca */
@@ -9,6 +9,8 @@ export const colors = {
   primary: '#333',
   /* Verde */
   secondary: '#10AC84',
+  // Cinza Claro
+  tertiary: '#a3a3a3'
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -23,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
   background-color: ${colors.black};
   color: ${colors.white};
   padding-top: 40px;
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
    }
    .wrapper {
   max-width: 1024px;
@@ -31,5 +33,3 @@ export const GlobalStyles = createGlobalStyle`
   width: 100%;
    }
 `
-
-
