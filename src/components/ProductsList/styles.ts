@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Props } from './index'
 import { colors } from '../../../styles/styles'
 import { CardProduct } from '../Product/styles'
+import { Props } from './index'
 
 export const Wrapper = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
@@ -16,7 +16,7 @@ export const Wrapper = styled.section<Omit<Props, 'title' | 'games'>>`
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 24px;
+  gap: 24px;
   margin-top: 32px;
 `
 
