@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
 import Categories from './pages/Categories'
+import Home from './pages/Home'
+import Product from './pages/Product'
 
 const MainRoutes = () => {
   return (
@@ -8,6 +9,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categorias" element={<Categories />} />
+        <Route path="/produto/:id" element={<Product />} />
       </Routes>
     </>
   )

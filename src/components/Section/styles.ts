@@ -11,16 +11,16 @@ export const Wrapper = styled.section<Omit<Props, 'title' | 'games'>>`
     background-color: ${(props) =>
       props.background === 'black' ? colors.primary : colors.black};
   }
-`
-
-export const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 32px;
+  p {
+    font-size: 400;
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 640px;
+  }
 `
 
 export const Title = styled.h2`
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 40px;
 `
