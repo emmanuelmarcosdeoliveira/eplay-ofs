@@ -22,6 +22,7 @@ const mok: GaleryItem[] = [
     url: 'https://www.youtube.com/embed/oXbjpM5sWU0?si=AfRYRXrPocfGm2cl'
   }
 ]
+console.log(mok)
 
 type Props = {
   defaultCover: string
