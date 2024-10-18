@@ -4,8 +4,10 @@
 
 ## Parte 1
 
-- [x] **Aula 6**</br>
-      Resumo:
-- [] Falta fazer o Resumo da Aula
+☑️ concluido
 
----
+## Parte 2
+
+integraçao com a API
+
+- Rever a aula 08
