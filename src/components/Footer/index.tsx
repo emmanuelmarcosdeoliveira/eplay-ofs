@@ -1,4 +1,4 @@
-import { Wrapper, MyLinks, MyLink, SecionTitlte, Footersection } from './styles'
+import { Footersection, MyLink, MyLinks, SecionTitlte, Wrapper } from './styles'
 
 const currentYear = new Date().getFullYear()
 const Footer = () => {
@@ -9,22 +9,19 @@ const Footer = () => {
           <SecionTitlte>Categorias</SecionTitlte>
           <MyLinks>
             <li>
-              <MyLink>RPG</MyLink>
+              <MyLink to="/categorias#rpg">RPG</MyLink>
             </li>
             <li>
-              <MyLink>Ação</MyLink>
+              <MyLink to="/categorias#action">Ação</MyLink>
             </li>
             <li>
-              <MyLink>Aventura</MyLink>
+              <MyLink to="/categorias#sports">Esportes </MyLink>
             </li>
             <li>
-              <MyLink>Esportes </MyLink>
+              <MyLink to="/categorias#simulation">Simulação</MyLink>
             </li>
             <li>
-              <MyLink>Estratégia</MyLink>
-            </li>
-            <li>
-              <MyLink>FPS</MyLink>
+              <MyLink to="/categorias#fight">Luta</MyLink>
             </li>
           </MyLinks>
         </Footersection>
@@ -32,13 +29,10 @@ const Footer = () => {
           <SecionTitlte>Acesso Rapido</SecionTitlte>
           <MyLinks>
             <li>
-              <MyLink>Novidades</MyLink>
+              <MyLink to="/#on-sale">Promoçoes</MyLink>
             </li>
             <li>
-              <MyLink>Promoçoes</MyLink>
-            </li>
-            <li>
-              <MyLink>EmBreve</MyLink>
+              <MyLink to="/#coming-soon">EmBreve</MyLink>
             </li>
           </MyLinks>
         </Footersection>

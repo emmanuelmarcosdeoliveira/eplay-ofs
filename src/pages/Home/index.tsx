@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 
@@ -32,26 +31,30 @@ export type Game = {
 }
 
 const Home = () => {
-  const [promocoes, setPromocoes] = useState<Game[]>([])
-  const [emBreve, setEmBreve] = useState<Game[]>([])
+  const { data: onSaleGames } = useGetOnSaleQuery()
+  const { data: soonGames } = useGetSoonQuery()
+  if (onSaleGames && soonGames) {
+    return (
+      <>
+        <Banner />
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/promocoes')
-      .then((res) => res.json())
-      .then((res) => setPromocoes(res))
+        <ProductsList
+          id="on-sale"
+          games={onSaleGames}
+          title="Promoçoes"
+          background="primary"
+        />
 
-    fetch('https://fake-api-tau.vercel.app/api/eplay/em-breve')
-      .then((res) => res.json())
-      .then((res) => setEmBreve(res))
-  }, [])
-
-  return (
-    <>
-      <Banner />
-      <ProductsList games={promocoes} title="Promoçoes" background="primary" />
-      <ProductsList games={emBreve} title="Em Breve" background="black" />
-    </>
-  )
+        <ProductsList
+          games={soonGames}
+          title="Em Breve"
+          background="black"
+          id="coming-soon"
+        />
+      </>
+    )
+  }
+  return <h4>Carregando . . .</h4>
 }
 
 export default Home
