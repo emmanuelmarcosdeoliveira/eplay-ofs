@@ -1,27 +1,10 @@
 import { useState } from 'react'
-import spiderMan from '../../assets/images/banner-homem-aranha.png'
-import hogwarts from '../../assets/images/hogwarts.png'
 import closed from '../../assets/svg/close.svg'
 import play from '../../assets/svg/play.svg'
 import zoom from '../../assets/svg/zoom.svg'
 import { GaleryItem } from '../../pages/Home'
 import Section from '../Section'
 import { Action, Item, Items, Modal, ModalContent } from './styles'
-
-const mok: GaleryItem[] = [
-  {
-    type: 'image',
-    url: spiderMan
-  },
-  {
-    type: 'image',
-    url: hogwarts
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/oXbjpM5sWU0?si=AfRYRXrPocfGm2cl'
-  }
-]
 
 type Props = {
   defaultCover: string

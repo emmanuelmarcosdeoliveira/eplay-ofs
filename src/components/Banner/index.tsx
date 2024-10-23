@@ -12,7 +12,7 @@ const Banner = () => {
   }
 
   return (
-    <Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <Imagem style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="wrapper">
         <Tag size="big">Destaque do dia</Tag>
         <div>
