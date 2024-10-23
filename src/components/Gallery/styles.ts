@@ -3,6 +3,7 @@ import { colors } from '../../../styles/styles'
 
 export const Items = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 `
 

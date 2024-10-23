@@ -1,3 +1,4 @@
+import { HashLink } from 'react-router-hash-link'
 import styled from 'styled-components'
 import { colors } from '../../../styles/styles'
 
@@ -20,7 +21,7 @@ export const MyLinks = styled.ul`
   margin-top: 16px;
 `
 
-export const MyLink = styled.a`
+export const MyLink = styled(HashLink)`
   color: ${colors.tertiary};
   text-decoration: none;
   margin-right: 8px;
