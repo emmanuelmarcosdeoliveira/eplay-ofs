@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { colors } from '../../../styles/styles';
+import styled from 'styled-components'
+import { colors } from '../../../styles/styles'
 
 export const HeaderBar = styled.header`
   background-color: ${colors.primary};
@@ -18,11 +18,11 @@ export const HeaderBar = styled.header`
     }
   }
   a {
-    color: ${colors.white}; 
+    color: ${colors.white};
     font-weight: 700;
     text-decoration: none;
-   }
- `
+  }
+`
 export const Links = styled.ul`
   display: flex;
   margin-left: 40px;
@@ -31,9 +31,9 @@ export const LinkItem = styled.li`
   margin-right: 16px;
 `
 
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   display: flex;
   img {
-  margin-left: 16px;
-}
+    margin-left: 16px;
+  }
 `

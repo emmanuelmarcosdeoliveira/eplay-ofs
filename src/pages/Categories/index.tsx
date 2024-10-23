@@ -19,13 +19,13 @@ const Categories = () => {
       <>
         <ProductsList games={sportGames} title="Esportes" background="black" />
         <ProductsList games={actionGames} title="Ação" background="primary" />
+        <ProductsList games={fithGames} title="Luta" background="primary" />
+        <ProductsList games={rpgGames} title="RPG" background="black" />
         <ProductsList
           games={simulationGames}
           title="simulação"
           background="black"
         />
-        <ProductsList games={fithGames} title="Luta" background="primary" />
-        <ProductsList games={rpgGames} title="RPG" background="black" />
       </>
     )
     return <h4>Carregando . . . </h4>
