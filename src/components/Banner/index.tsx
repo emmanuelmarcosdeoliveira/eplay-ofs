@@ -5,7 +5,7 @@ import Tag from '../Tag'
 import { Imagem, Precos, Title } from './styles'
 
 const Banner = () => {
-  const { data: game, isLoading } = useGeatFeatureGameQuery()
+  const { data: game } = useGeatFeatureGameQuery()
 
   if (!game) {
     return <h3>'carregando...'</h3>
