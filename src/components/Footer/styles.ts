@@ -7,6 +7,7 @@ export const Wrapper = styled.footer`
   padding-block: 32px;
   padding-inline: 0px;
   font-size: 14px;
+  margin-top: 40px;
 `
 
 export const SecionTitlte = styled.h4`
