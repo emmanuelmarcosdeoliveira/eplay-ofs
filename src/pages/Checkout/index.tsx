@@ -5,9 +5,11 @@ import Boleto from '../../assets/svg/boleto.svg'
 import Cartao from '../../assets/svg/card.svg'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
+import { usePurchaseMutation } from '../../services/api'
 import { InputGroup, Row, TabButton } from './styles'
 const Checkout = () => {
   const [payWithCard, setPayWitchCard] = useState(false)
+  const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
   const form = useFormik({
     initialValues: {
       fullName: '',
@@ -66,18 +68,41 @@ const Checkout = () => {
       installments: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       )
-
-      // cardOwner: '',
-      // cpfCardOwner: '',
-      // cardDisplayName: '',
-      // cardNumber: '',
-      // expiresMonth: '',
-      // expiresYear: '',
-      // CardCode: '',
-      // installments: ''
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        billing: {
+          document: values.cpf,
+          email: values.email,
+          name: values.fullName
+        },
+        delivery: {
+          email: values.deliveryEmail
+        },
+        payment: {
+          installments: 1,
+          card: {
+            active: payWithCard,
+            code: Number(values.cardCode),
+            name: values.cardDisplayName,
+            number: values.cardNumber,
+            owner: {
+              document: values.cpfCardOwner,
+              name: values.cardOwner
+            },
+            expires: {
+              month: 1,
+              year: 2024
+            }
+          }
+        },
+        products: [
+          {
+            id: 1,
+            price: 10
+          }
+        ]
+      })
     }
   })
   console.log(form)
