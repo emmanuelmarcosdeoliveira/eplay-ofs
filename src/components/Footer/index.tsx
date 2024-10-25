@@ -1,44 +1,79 @@
-import { Footersection, MyLink, MyLinks, SecionTitlte, Wrapper } from './styles'
+import * as S from './styles'
 
 const currentYear = new Date().getFullYear()
 const Footer = () => {
   return (
-    <Wrapper>
+    <S.Wrapper>
       <div className="wrapper">
-        <Footersection>
-          <SecionTitlte>Categorias</SecionTitlte>
-          <MyLinks>
+        <S.Footersection>
+          <S.SecionTitlte>Categorias</S.SecionTitlte>
+          <S.MyLinks>
             <li>
-              <MyLink to="/categorias#rpg">RPG</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar jogos de RPG"
+                to="/categorias#rpg"
+              >
+                RPG
+              </S.MyLink>
             </li>
             <li>
-              <MyLink to="/categorias#action">Ação</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar jogos de ação"
+                to="/categorias#action"
+              >
+                Ação
+              </S.MyLink>
             </li>
             <li>
-              <MyLink to="/categorias#sports">Esportes </MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar jogos de esportes"
+                to="/categorias#sports"
+              >
+                Esportes{' '}
+              </S.MyLink>
             </li>
             <li>
-              <MyLink to="/categorias#simulation">Simulação</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar jogos de simulaçao"
+                to="/categorias#simulation"
+              >
+                Simulação
+              </S.MyLink>
             </li>
             <li>
-              <MyLink to="/categorias#fight">Luta</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar jogos de luta"
+                to="/categorias#fight"
+              >
+                Luta
+              </S.MyLink>
             </li>
-          </MyLinks>
-        </Footersection>
-        <Footersection>
-          <SecionTitlte>Acesso Rapido</SecionTitlte>
-          <MyLinks>
+          </S.MyLinks>
+        </S.Footersection>
+        <S.Footersection>
+          <S.SecionTitlte>Acesso Rapido</S.SecionTitlte>
+          <S.MyLinks>
             <li>
-              <MyLink to="/#on-sale">Promoçoes</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar a seção de promoções"
+                to="/#on-sale"
+              >
+                Promoçoes
+              </S.MyLink>
             </li>
             <li>
-              <MyLink to="/#coming-soon">EmBreve</MyLink>
+              <S.MyLink
+                title="Clique aqui para acessar a seção emBreve"
+                to="/#coming-soon"
+              >
+                EmBreve
+              </S.MyLink>
             </li>
-          </MyLinks>
-        </Footersection>
+          </S.MyLinks>
+        </S.Footersection>
         <p>{currentYear} - &copy;Eplay Todos os Direiots Reservados </p>
       </div>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 export default Footer

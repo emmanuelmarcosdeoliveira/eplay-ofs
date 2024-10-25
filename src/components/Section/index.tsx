@@ -1,4 +1,4 @@
-import { Title, Wrapper } from './styles'
+import * as S from './styles'
 
 export type Props = {
   title: string
@@ -8,12 +8,12 @@ export type Props = {
 
 const Section = ({ title, background, children }: Props) => {
   return (
-    <Wrapper background={background}>
+    <S.Wrapper background={background}>
       <div className="wrapper">
-        <Title>{title}</Title>
+        <S.Title>{title}</S.Title>
         {children}
       </div>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 

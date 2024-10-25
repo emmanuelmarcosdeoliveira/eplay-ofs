@@ -14,6 +14,7 @@ export const ButtonContainer = styled.button<Props>`
   background-color: ${(props) =>
     props.variant === 'primary' ? colors.secondary : 'transparent'};
   border-radius: 8px;
+  cursor: pointer;
 `
 
 export const ButtonLink = styled(Link)`
