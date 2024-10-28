@@ -118,7 +118,7 @@ export const BtnMy = styled.button`
   border-radius: 4px;
   position: absolute;
   top: 0;
-  right: 8px;
+  right: 310px;
   cursor: pointer;
   margin-top: 8px;
 `

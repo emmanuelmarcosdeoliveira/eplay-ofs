@@ -1,31 +1,34 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import { parseToBrl } from '../../utils/parseToBrl'
+import { parseToBrl } from '../../utils'
+import { getTotalPrice } from '../../utils'
 import Button from '../Button'
 import Tag from '../Tag'
 import * as S from './styles'
+
 const Cart = () => {
   const dispatch = useDispatch()
-
-  const CloseCart = () => {
+  const navigate = useNavigate()
+  const closeCart = () => {
     dispatch(close())
   }
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
-  const getTotalPrice = () => {
-    return items.reduce((acumulator, currentValue) => {
-      return (acumulator += currentValue.prices.current!)
-    }, 0)
-  }
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
+  const goToCheckout = () => {
+    navigate('/checkout')
+    closeCart()
+  }
+
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
-      <S.Overlay onClick={CloseCart} />
+      <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <S.BtnMy onClick={CloseCart}></S.BtnMy>
+        <S.BtnMy onClick={closeCart}></S.BtnMy>
         <ul>
           {items.map((item) => (
             <S.CartItem key={item.id}>
@@ -42,11 +45,15 @@ const Cart = () => {
         </ul>
         <S.Quantity>{items.length} jogo(s) no carinho</S.Quantity>
         <S.Prices>
-          Total de {parseToBrl(getTotalPrice())}{' '}
+          Total de {parseToBrl(getTotalPrice(items))}{' '}
           <span>Em até 6x sem juros</span>{' '}
         </S.Prices>
-        <Button type="button" title="Clique aqui para continuar com a compra ">
-          Continuar com a compra
+        <Button
+          onClick={goToCheckout}
+          type="button"
+          title="Clique aqui para continuar com a compra "
+        >
+          Fazer Checkout
         </Button>
       </S.Sidebar>
     </S.CartContainer>

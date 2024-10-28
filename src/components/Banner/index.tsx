@@ -1,5 +1,5 @@
 import { useGeatFeatureGameQuery } from '../../services/api'
-import { parseToBrl } from '../../utils/parseToBrl'
+import { parseToBrl } from '../../utils'
 import Button from '../Button'
 import Tag from '../Tag'
 import * as S from './styles'
