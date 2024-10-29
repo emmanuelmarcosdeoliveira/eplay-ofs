@@ -3,7 +3,9 @@ import { breakPoints, colors } from '../../../styles/styles'
 import { CardProduct } from '../Product/styles'
 import { Props } from './index'
 
-export const Wrapper = styled.section<Omit<Props, 'title' | 'games'>>`
+export const Wrapper = styled.section<
+  Omit<Props, 'title' | 'games' | 'isLoading'>
+>`
   padding: 32px 0;
   background-color: ${(props) =>
     props.background === 'black' ? colors.black : colors.primary};
