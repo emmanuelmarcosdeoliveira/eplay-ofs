@@ -41,6 +41,7 @@ export const Banner = styled.div`
 export const Infos = styled.div`
   padding: 16px;
   background-color: ${colors.black};
+  opacity: 0.8;
   max-width: 290px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -51,6 +52,7 @@ export const Infos = styled.div`
   p {
     font-size: 18px;
     padding-block: 16px;
+
     span {
       display: block;
       text-decoration: line-through;

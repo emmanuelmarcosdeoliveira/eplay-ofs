@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../../styles/styles'
-import Closed from '../../assets/svg/close.svg'
+import closeIcon from '../../assets/svg/close.svg'
 import { ButtonContainer } from '../Button/styles'
 import { TagContainer } from '../Tag/styles'
 
@@ -40,6 +40,15 @@ export const Sidebar = styled.aside`
   }
   ul {
     margin-top: 16px;
+  }
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 24px;
+    max-width: 270px;
+    width: 100%;
+    opacity: 80%;
+    margin-inline: auto;
   }
 `
 export const Prices = styled.p`
@@ -92,7 +101,7 @@ export const CartItem = styled.li`
     }
   }
   button {
-    background-image: url(${Closed});
+    background-image: url(${closeIcon});
     width: 16px;
     height: 16px;
     border: none;
@@ -106,7 +115,7 @@ export const CartItem = styled.li`
   }
 `
 export const BtnMy = styled.button`
-  background-image: url(${Closed});
+  background-image: url(${closeIcon});
   background-position: center center;
   background-repeat: no-repeat;
   width: 16px;
@@ -118,7 +127,7 @@ export const BtnMy = styled.button`
   border-radius: 4px;
   position: absolute;
   top: 0;
-  right: 8px;
+  right: 310px;
   cursor: pointer;
   margin-top: 8px;
 `

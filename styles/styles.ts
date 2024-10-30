@@ -40,4 +40,59 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 80%;
     }
    }
+   html {
+    scroll-behavior: smooth;
+    :target {
+      scroll-margin-top: .5rem;
+    }
+   }
+   .animeLeft {
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: animeLeft 1s ease forwards;
+    animation-delay: 500ms;
+      }
+      @keyframes animeLeft {
+        to {
+         opacity :1;
+         transform: initial;
+        }
+      }
+      .animeRigth {
+    opacity: 0;
+    transform: translateX(80px);
+    animation: animeRigth 1s ease forwards;
+    animation-delay: 500ms;
+      }
+      @keyframes animeRigth {
+        to {
+         opacity :1;
+         transform: initial;
+        }
+      }
+      .animeBotton {
+    opacity: 0;
+    transform: translateY(-80px);
+    animation: animeLeft 1s ease forwards;
+    animation-delay: 500ms;
+      }
+      @keyframes animeBotton {
+        to {
+         opacity :1;
+         transform: initial;
+        }
+      }
+      .animeTop {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: animeTop  1s ease forwards;
+    animation-delay: 300ms;
+      }
+      @keyframes animeTop {
+        to {
+         opacity :1;
+         transform: initial;
+        }
+      }
+
 `

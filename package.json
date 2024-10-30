@@ -11,17 +11,22 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-input-mask": "^2.0.4",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.26.1",
     "react-router-hash-link": "^2.4.3",
-    "styled-components": "^6.1.12"
+    "react-spinners": "^0.14.1",
+    "styled-components": "^6.1.12",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-input-mask": "^3.0.5",
     "@types/react-router-hash-link": "^2.4.9",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "^9.9.0",

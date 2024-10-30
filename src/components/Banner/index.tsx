@@ -1,39 +1,39 @@
 import { useGeatFeatureGameQuery } from '../../services/api'
+import { parseToBrl } from '../../utils'
 import Button from '../Button'
-import { formatPrice } from '../ProductsList'
+import Loader from '../Loader'
 import Tag from '../Tag'
-import { Imagem, Precos, Title } from './styles'
+import * as S from './styles'
 
 const Banner = () => {
-const { data: game } = useGeatFeatureGameQuery()
-
+  const { data: game } = useGeatFeatureGameQuery()
 
   if (!game) {
-    return <h3>'carregando...'</h3>
+    return <Loader />
   }
 
   return (
-    <Imagem style={{ backgroundImage: `url(${game?.media.cover})` }}>
+    <S.Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="wrapper">
         <Tag size="big">Destaque do dia</Tag>
-        <div>
-          <Title>{game.name}</Title>
-          <Precos>
-            De <span>{formatPrice(game.prices.old)}</span>
-            <br /> por apenas {formatPrice(game.prices.current)}
-          </Precos>
+        <div className="animeLeft">
+          <S.Title>{game.name}</S.Title>
+          <S.Prices>
+            De <span>{parseToBrl(game.prices.old)}</span>
+            <br /> por apenas {parseToBrl(game.prices.current)}
+          </S.Prices>
         </div>
-        <div>
+        <div className="animeRigth">
           <Button
+            title="Clique aqui e Aproveite a oferta"
             type="link"
             to={`/produto/${game.id}`}
-            title="Clique aqui e Aproveite a oferta"
           >
             Aproveitar
           </Button>
         </div>
       </div>
-    </Imagem>
+    </S.Image>
   )
 }
 

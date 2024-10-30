@@ -1,44 +1,91 @@
-import { Footersection, MyLink, MyLinks, SecionTitlte, Wrapper } from './styles'
+import * as S from './styles'
 
 const currentYear = new Date().getFullYear()
-const Footer = () => {
-  return (
-    <Wrapper>
-      <div className="wrapper">
-        <Footersection>
-          <SecionTitlte>Categorias</SecionTitlte>
-          <MyLinks>
-            <li>
-              <MyLink to="/categorias#rpg">RPG</MyLink>
-            </li>
-            <li>
-              <MyLink to="/categorias#action">Ação</MyLink>
-            </li>
-            <li>
-              <MyLink to="/categorias#sports">Esportes </MyLink>
-            </li>
-            <li>
-              <MyLink to="/categorias#simulation">Simulação</MyLink>
-            </li>
-            <li>
-              <MyLink to="/categorias#fight">Luta</MyLink>
-            </li>
-          </MyLinks>
-        </Footersection>
-        <Footersection>
-          <SecionTitlte>Acesso Rapido</SecionTitlte>
-          <MyLinks>
-            <li>
-              <MyLink to="/#on-sale">Promoçoes</MyLink>
-            </li>
-            <li>
-              <MyLink to="/#coming-soon">EmBreve</MyLink>
-            </li>
-          </MyLinks>
-        </Footersection>
+const Footer = () => (
+  <S.Wrapper>
+    <div className="wrapper">
+      <S.Footersection>
+        <S.SecionTitlte>Categorias</S.SecionTitlte>
+        <S.MyLinks>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar jogos de RPG"
+              to="/categorias#rpg"
+            >
+              RPG
+            </S.MyLink>
+          </li>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar jogos de ação"
+              to="/categorias#action"
+            >
+              Ação
+            </S.MyLink>
+          </li>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar jogos de esportes"
+              to="/categorias#sports"
+            >
+              Esportes{' '}
+            </S.MyLink>
+          </li>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar jogos de simulaçao"
+              to="/categorias#simulation"
+            >
+              Simulação
+            </S.MyLink>
+          </li>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar jogos de luta"
+              to="/categorias#fight"
+            >
+              Luta
+            </S.MyLink>
+          </li>
+        </S.MyLinks>
+      </S.Footersection>
+      <S.Footersection>
+        <S.SecionTitlte>Acesso Rapido</S.SecionTitlte>
+        <S.MyLinks>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar a seção de promoções"
+              to="/#on-sale"
+            >
+              Promoçoes
+            </S.MyLink>
+          </li>
+          <li>
+            <S.MyLink
+              title="Clique aqui para acessar a seção emBreve"
+              to="/#coming-soon"
+            >
+              EmBreve
+            </S.MyLink>
+          </li>
+        </S.MyLinks>
+      </S.Footersection>
+      <S.Copycontainer>
+        <p>
+          Develope by 🩶{' '}
+          <span>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/oliveira-emmanuel/"
+            >
+              {' '}
+              Emmanuel Oliveira
+            </a>
+          </span>
+        </p>
         <p>{currentYear} - &copy;Eplay Todos os Direiots Reservados </p>
-      </div>
-    </Wrapper>
-  )
-}
+      </S.Copycontainer>
+    </div>
+  </S.Wrapper>
+)
 export default Footer

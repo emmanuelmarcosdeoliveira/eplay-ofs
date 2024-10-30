@@ -11,12 +11,16 @@ export const CardProduct = styled(Link)`
   text-decoration: none;
   color: inherit;
   display: block;
-  min-height: 452px;
+  height: 100%;
   img {
     display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: all.2s;
+    &:hover {
+      transform: scale(0.96);
+    }
   }
 
   ${TagContainer} {
