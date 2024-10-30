@@ -2,7 +2,6 @@ import { useState } from 'react'
 import closedIcon from '../../assets/svg/close.svg'
 import play from '../../assets/svg/play.svg'
 import zoom from '../../assets/svg/zoom.svg'
-import { GaleryItem } from '../../pages/Home'
 import Section from '../Section'
 import * as S from './styles'
 

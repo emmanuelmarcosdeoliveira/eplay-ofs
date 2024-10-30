@@ -16,18 +16,18 @@ const Banner = () => {
     <S.Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="wrapper">
         <Tag size="big">Destaque do dia</Tag>
-        <div>
+        <div className="animeLeft">
           <S.Title>{game.name}</S.Title>
           <S.Prices>
             De <span>{parseToBrl(game.prices.old)}</span>
             <br /> por apenas {parseToBrl(game.prices.current)}
           </S.Prices>
         </div>
-        <div>
+        <div className="animeRigth">
           <Button
+            title="Clique aqui e Aproveite a oferta"
             type="link"
             to={`/produto/${game.id}`}
-            title="Clique aqui e Aproveite a oferta"
           >
             Aproveitar
           </Button>

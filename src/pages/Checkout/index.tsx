@@ -6,12 +6,14 @@ import creditCard from '../../assets/svg/card.svg'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import { usePurchaseMutation } from '../../services/api'
+import { clear } from '../../store/reducers/cart'
 import * as S from './styles'
 import { Navigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { getTotalPrice } from '../../utils'
 import { parseToBrl } from '../../utils/'
+import InputMask from 'react-input-mask'
 
 type Installment = {
   quantity: number
@@ -21,10 +23,10 @@ type Installment = {
 
 const Checkout = () => {
   const [payWithCard, setPayWitchCard] = useState(false)
-  const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
   const [installments, setInstallments] = useState<Installment[]>([])
-
+  const dispatch = useDispatch()
   const totalPrice = getTotalPrice(items)
 
   const form = useFormik({
@@ -41,7 +43,7 @@ const Checkout = () => {
       expiresMonth: '',
       expiresYear: '',
       cardCode: '',
-      installments: ''
+      installments: 1
     },
     validationSchema: Yup.object({
       fullName: Yup.string()
@@ -82,7 +84,7 @@ const Checkout = () => {
       cardCode: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
-      installments: Yup.string().when((_values, schema) =>
+      installments: Yup.number().when((_values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       )
     }),
@@ -97,7 +99,7 @@ const Checkout = () => {
           email: values.deliveryEmail
         },
         payment: {
-          installments: 1,
+          installments: values.installments,
           card: {
             active: payWithCard,
             code: Number(values.cardCode),
@@ -108,17 +110,15 @@ const Checkout = () => {
               name: values.cardOwner
             },
             expires: {
-              month: 1,
-              year: 2024
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
             }
           }
         },
-        products: [
-          {
-            id: 1,
-            price: 10
-          }
-        ]
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.prices.current as number
+        }))
       })
     }
   })
@@ -148,13 +148,19 @@ const Checkout = () => {
     }
   }, [totalPrice])
 
-  if (items.length === 0) {
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [dispatch, isSuccess])
+
+  if (items.length === 0 && !isSuccess) {
     return <Navigate to="/" />
   }
 
   return (
     <div className="wrapper">
-      {isSuccess ? (
+      {isSuccess && data ? (
         <Card title="Muito Obrigado!">
           <>
             <p>
@@ -197,6 +203,7 @@ const Checkout = () => {
                 <S.InputGroup>
                   <label htmlFor="fullName">Nome completo</label>
                   <input
+                    placeholder="Nome completo"
                     id="fullName"
                     type="text"
                     name="fullName"
@@ -209,6 +216,7 @@ const Checkout = () => {
                 <S.InputGroup>
                   <label htmlFor="email">E-mail</label>
                   <input
+                    placeholder="nome@email.com"
                     type="email"
                     name="email"
                     id="email"
@@ -220,7 +228,9 @@ const Checkout = () => {
                 </S.InputGroup>
                 <S.InputGroup>
                   <label htmlFor="cpf">CPF</label>
-                  <input
+
+                  <InputMask
+                    placeholder="000.000.000-00"
                     type="text"
                     name="cpf"
                     id="cpf"
@@ -228,6 +238,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cpf') ? 'error' : ''}
+                    mask="999.999.999-99"
                   />
                 </S.InputGroup>
               </S.Row>
@@ -236,6 +247,7 @@ const Checkout = () => {
                 <S.InputGroup>
                   <label htmlFor="deliveryEmail">E-mail</label>
                   <input
+                    placeholder="nome@email.com"
                     type="email"
                     name="deliveryEmail"
                     id="deliveryEmail"
@@ -252,6 +264,7 @@ const Checkout = () => {
                     Confirme o E-mail
                   </label>
                   <input
+                    placeholder="nome@email.com"
                     type="email"
                     name=""
                     id="confirmDeliveryEmail"
@@ -293,6 +306,7 @@ const Checkout = () => {
                           Nome do Titular do Cartão
                         </label>
                         <input
+                          placeholder="Nome Completo"
                           type="text"
                           name="cardOwner"
                           value={form.values.cardOwner}
@@ -308,8 +322,9 @@ const Checkout = () => {
                         <label htmlFor="cpfCardOwner">
                           CPF do titular do cartão
                         </label>
-                        <input
-                          type="email"
+                        <InputMask
+                          type="text"
+                          placeholder="000.000.000-00"
                           name="cpfCardOwner"
                           id="cpfCardOwner"
                           value={form.values.cpfCardOwner}
@@ -318,6 +333,7 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cpfCardOwner') ? 'error' : ''
                           }
+                          mask="999.999.999-99"
                         />
                       </S.InputGroup>
                     </S.Row>
@@ -327,6 +343,7 @@ const Checkout = () => {
                           Nome do Titular do Cartão
                         </label>
                         <input
+                          placeholder="Nome Titular Cartão"
                           type="text"
                           name="cardDisplayName"
                           id="cardOwner"
@@ -340,8 +357,9 @@ const Checkout = () => {
                       </S.InputGroup>
                       <S.InputGroup>
                         <label htmlFor="cardNumber">Numnero do cartão</label>
-                        <input
-                          type="email"
+                        <InputMask
+                          placeholder="0000 0000 0000 0000"
+                          type="text"
                           name="cardNumber"
                           id="cardNumber"
                           value={form.values.cardNumber}
@@ -350,12 +368,14 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cardNumber') ? 'error' : ''
                           }
+                          mask="9999 9999 9999 9999"
                         />
                       </S.InputGroup>
                       <S.InputGroup maxWidth="123px">
                         <label htmlFor="expiresMonth">Mês de expiração</label>
-                        <input
-                          type="number"
+                        <InputMask
+                          placeholder="00"
+                          type="text"
                           name="expiresMonth"
                           id="expiresMonth"
                           value={form.values.expiresMonth}
@@ -364,12 +384,14 @@ const Checkout = () => {
                           className={
                             checkInputHasError('expiresMonth') ? 'error' : ''
                           }
+                          mask="99"
                         />
                       </S.InputGroup>
                       <S.InputGroup maxWidth="123px">
                         <label htmlFor="expiresYear">Ano de expiração</label>
-                        <input
-                          type="number"
+                        <InputMask
+                          placeholder="00"
+                          type="text"
                           name="expiresYear"
                           id="expiresYear"
                           value={form.values.expiresYear}
@@ -378,12 +400,14 @@ const Checkout = () => {
                           className={
                             checkInputHasError('expiresYear') ? 'error' : ''
                           }
+                          mask="99"
                         />
                       </S.InputGroup>
                       <S.InputGroup maxWidth="48px">
                         <label htmlFor="cardCode">CVV</label>
-                        <input
-                          type="number"
+                        <InputMask
+                          placeholder="123"
+                          type="text"
                           name="cardCode"
                           id="cardCode"
                           value={form.values.cardCode}
@@ -392,6 +416,7 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cardCode') ? 'error' : ''
                           }
+                          mask="999"
                         />
                       </S.InputGroup>
                     </S.Row>
@@ -422,7 +447,10 @@ const Checkout = () => {
                     }
                   >
                     {installments.map((installment) => (
-                      <option key={installment.quantity}>
+                      <option
+                        value={installment.quantity}
+                        key={installment.quantity}
+                      >
                         {installment.quantity}x de{' '}
                         {installment.formattedAmounth}
                       </option>
@@ -435,9 +463,10 @@ const Checkout = () => {
           <Button
             type="submit"
             title="Clique aqui para finalizar a compra"
+            disabled={isLoading}
             onClick={form.handleSubmit}
           >
-            Finalizar Compra
+            {isLoading ? 'Finalizando a Compra...' : 'Finalizar Compra'}
           </Button>
         </form>
       )}

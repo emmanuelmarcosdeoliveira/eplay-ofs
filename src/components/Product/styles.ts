@@ -17,6 +17,10 @@ export const CardProduct = styled(Link)`
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: all.2s;
+    &:hover {
+      transform: scale(0.96);
+    }
   }
 
   ${TagContainer} {

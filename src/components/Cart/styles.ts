@@ -41,6 +41,15 @@ export const Sidebar = styled.aside`
   ul {
     margin-top: 16px;
   }
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 24px;
+    max-width: 270px;
+    width: 100%;
+    opacity: 80%;
+    margin-inline: auto;
+  }
 `
 export const Prices = styled.p`
   font-weight: bold;

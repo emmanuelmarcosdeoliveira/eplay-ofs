@@ -1,4 +1,3 @@
-import { Game } from '../../pages/Home'
 import { parseToBrl } from '../../utils'
 import Loader from '../Loader'
 import Product from '../Product'
@@ -38,7 +37,7 @@ const ProductsList = ({ title, background, games, id, isLoading }: Props) => {
         <S.List>
           {games &&
             games.map((game) => (
-              <li key={game.id}>
+              <li key={game.id} className="animeTop">
                 <Product
                   id={game.id}
                   category={game.details.category}

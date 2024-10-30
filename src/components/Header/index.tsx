@@ -16,7 +16,7 @@ const Header = () => {
   }
   return (
     <>
-      <S.HeaderBar>
+      <S.HeaderBar className="animeBotton">
         <S.HeaderRow>
           <div>
             <S.Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -25,10 +25,21 @@ const Header = () => {
               <span />
             </S.Hamburger>
             <Link to="/">
-              <img src={logo} alt="Eplay" />
+              <h1>
+                <img src={logo} alt="EPLAY" />
+              </h1>
             </Link>
             <nav>
               <S.Links>
+                <S.LinkItem>
+                  <NavLink
+                    title="Clique aqui para acessar a página Principal"
+                    to="/"
+                    end
+                  >
+                    Home
+                  </NavLink>
+                </S.LinkItem>
                 <S.LinkItem>
                   <NavLink
                     title="Clique aqui para acessar a página de categorias"
@@ -56,13 +67,27 @@ const Header = () => {
               </S.Links>
             </nav>
           </div>
-          <S.CartButton onClick={openCart}>
-            {items.length} <span> - produto(s)</span>
+          <S.CartButton
+            title="Acesse o carrinho de compras"
+            role="button"
+            onClick={openCart}
+          >
+            {items.length} <span> -produto(s)</span>
             <img src={cartIcon} alt="Carrinho de compras" />
           </S.CartButton>
         </S.HeaderRow>
         <S.NavMobile className={isMenuOpen ? 'is-open' : ''}>
           <S.Links>
+            <S.LinkItem>
+              <NavLink
+                onClick={() => setIsMenuOpen(false)}
+                title="Clique aqui para acessar a página Principal"
+                to="/"
+                end
+              >
+                Home
+              </NavLink>
+            </S.LinkItem>
             <S.LinkItem>
               <NavLink
                 onClick={() => setIsMenuOpen(false)}

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { TagContainer } from '../Tag/styles'
+import { colors } from '../../../styles/styles'
 
 export const Image = styled.div`
   width: 100%;
@@ -7,8 +8,15 @@ export const Image = styled.div`
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top center;
   font-weight: 700;
   position: relative;
+  a {
+    transition: 0.4s;
+    &:hover {
+      background-color: ${colors.secondary};
+    }
+  }
 
   .wrapper {
     position: relative;

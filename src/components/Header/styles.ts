@@ -16,10 +16,18 @@ export const HeaderBar = styled.header`
   color: ${colors.white};
   border-radius: 16px;
   margin-bottom: 80px;
-  a {
-    color: ${colors.white};
+  a,
+  span {
+    color: ${colors.tertiary};
     text-decoration: none;
     font-weight: 700;
+    transition: all.2s;
+    &:hover {
+      color: ${colors.white};
+    }
+  }
+  h1 {
+    line-height: 0;
   }
 `
 export const NavMobile = styled.nav`
@@ -31,6 +39,22 @@ export const NavMobile = styled.nav`
 
 export const LinkItem = styled.li`
   margin-right: 16px;
+  position: relative;
+  a.active {
+    color: ${colors.white};
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: -8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: ${colors.secondary};
+    }
+  }
+
   @media (max-width: ${breakPoints.tablet}) {
     margin-right: 0;
     a {
@@ -38,11 +62,19 @@ export const LinkItem = styled.li`
       display: block;
       text-align: center;
     }
+    a.active {
+      color: ${colors.white};
+      &::before {
+        content: '';
+        display: none;
+      }
+    }
   }
 `
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   display: flex;
+  cursor: pointer;
   img {
     margin-left: 16px;
   }
