@@ -1,5 +1,6 @@
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
+import Head from '../../Head'
 import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 const Home = () => {
@@ -8,6 +9,10 @@ const Home = () => {
 
   return (
     <>
+      <Head
+        title="Eplay | OFS "
+        description="Eplay | OFS é a melhor plaltaforma de Venda de Games, encontre o seu Jogo Favorito aqui.Desenvolvida por Emmanuel Oliveira"
+      />
       <Banner />
       <ProductsList
         id="on-sale"
