@@ -1,4 +1,5 @@
 import ProductsList from '../../components/ProductsList'
+import Head from '../../Head'
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,
@@ -19,6 +20,10 @@ const Categories = () => {
 
   return (
     <>
+      <Head
+        title="Eplay - Categorias | OFS"
+        description="Pagina Categorias da Eplay | OFS aqui você ecntro os seus Games Favoritos atráves da diversas categtorias como : Esportes, Açao, RPG, Luta, Simulaçao"
+      />
       <ProductsList
         games={sportGames}
         title="Esportes"
