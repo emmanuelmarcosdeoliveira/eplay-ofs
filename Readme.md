@@ -189,6 +189,12 @@ https://fake-api-tau.vercel.app/api/eplay/esportes
 <p align="center">Video de Demostração</p>
 <br>
 
+
+https://github.com/user-attachments/assets/da82edeb-c8aa-46e8-adf0-f63c5f709102
+
+
+
+
 <br>
  <div align="center">
 Acesse a versão on-line Projeto clicando no Link Abaixo
