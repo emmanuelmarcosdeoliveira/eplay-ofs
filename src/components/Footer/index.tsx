@@ -74,16 +74,13 @@ const Footer = () => (
         <p>
           Develope by 🩶{' '}
           <span>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/oliveira-emmanuel/"
-            >
+            <a target="_blank" href="https://www.ofs.dev.br">
               {' '}
               Emmanuel Oliveira
             </a>
           </span>
         </p>
-        <p>{currentYear} - &copy;Eplay Todos os Direiots Reservados </p>
+        <p>{currentYear} - &copy;Eplay Alguns Direitos Reservados </p>
       </S.Copycontainer>
     </div>
   </S.Wrapper>
